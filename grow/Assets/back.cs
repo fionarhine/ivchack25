@@ -17,4 +17,9 @@ public class back : MonoBehaviour
     public void studyLoad(){
         SceneManager.LoadSceneAsync("study area");
     }
+
+
+    public void calendar(){
+        SceneManager.LoadSceneAsync("calendar");
+    }
 }
