@@ -176,7 +176,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: start!
+  m_text: 'join!
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -273,7 +275,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &215954290
 RectTransform:
   m_ObjectHideFlags: 0
@@ -337,7 +339,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 215954292}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 424828137}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: SetUserNameAndJoin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &215954292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,12 +434,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0abaa684a05ed48158398ec9dbe68807, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VersioName: 0.1
+  VersionName: 0.1
   UsernameMenu: {fileID: 1471820260}
-  ConnectPanel: {fileID: 1728319857}
-  UsernameInput: {fileID: 0}
-  CreateGameInput: {fileID: 0}
-  JoinGameInput: {fileID: 0}
+  UsernameInput: {fileID: 1569146024}
+  JoinButton: {fileID: 1357883776}
+  StartButton: {fileID: 215954289}
 --- !u!1 &519632184
 GameObject:
   m_ObjectHideFlags: 0
@@ -1621,7 +1634,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1357883777}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 424828137}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: OnJoinedLobby
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1357883777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2020,7 +2045,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 424828137}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: ChangeUserNameInput
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2488,7 +2525,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1728319858
 Transform:
   m_ObjectHideFlags: 0

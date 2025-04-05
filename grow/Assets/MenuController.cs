@@ -8,52 +8,67 @@ using Photon.Realtime;
 
 public class MenuController : MonoBehaviourPunCallbacks
 {
-    [SerializeField] private string VersioName = "0.1";
+    [SerializeField] private string VersionName = "0.1";
     [SerializeField] private GameObject UsernameMenu;
-    [SerializeField] private GameObject ConnectPanel;
-
     [SerializeField] private TMP_InputField UsernameInput;
-    [SerializeField] private TMP_InputField CreateGameInput;
-    [SerializeField] private TMP_InputField JoinGameInput;
+    [SerializeField] private Button JoinButton;
 
     [SerializeField] private GameObject StartButton;
 
-    private void Awake(){
-        PhotonNetwork.GameVersion = VersioName;
+    private bool isLobbyReady = false;
+
+    private void Awake()
+    {
+        PhotonNetwork.GameVersion = VersionName;
         PhotonNetwork.ConnectUsingSettings();
     }
 
-    private void Start(){
-        UsernameMenu.SetActive(true);
-    }
-
-    public override void OnConnectedToMaster(){
-        PhotonNetwork.JoinLobby(TypedLobby.Default);
-        Debug.Log("Connected");
-    }
-
     public void ChangeUserNameInput(){
-    if(UsernameInput.text.Length >= 3){
-        StartButton.SetActive(true);
-    }
-    else{
-        StartButton.SetActive(false);
-    }
+     if(UsernameInput.text.Length >= 3){
+         StartButton.SetActive(true);
+     }
+     else{
+         StartButton.SetActive(false);
+     }
+     }
+
+    private void Start()
+    {
+        UsernameMenu.SetActive(true);
+        JoinButton.interactable = false;
     }
 
-    public void SetUserName(){
-        UsernameMenu.SetActive(false);
+    public override void OnConnectedToMaster()
+    {
+        PhotonNetwork.JoinLobby(); 
+        Debug.Log("Connected to Master Server.");
+    }
+
+    public override void OnJoinedLobby()
+    {
+        isLobbyReady = true;
+        Debug.Log("Joined Lobby.");
+        JoinButton.interactable = true;
+    }
+
+    public void SetUserNameAndJoin()
+    {
+        if (UsernameInput.text.Length < 3 || !isLobbyReady)
+        {
+            Debug.LogWarning("Username too short or not connected.");
+            return;
+        }
+
         PhotonNetwork.NickName = UsernameInput.text;
-    }
+        UsernameMenu.SetActive(false);
 
-    public void JoinGame(){
-        RoomOptions roomOptions = new RoomOptions();
-        roomOptions.MaxPlayers = 20;
+        RoomOptions roomOptions = new RoomOptions { MaxPlayers = 20 };
         PhotonNetwork.JoinOrCreateRoom("MainRoom", roomOptions, TypedLobby.Default);
     }
 
-    private void OnJoinedRoom(){
-        PhotonNetwork.LoadLevel("main game");
+    public override void OnJoinedRoom()
+    {
+        Debug.Log("Joined room successfully. Loading game scene...");
+        PhotonNetwork.LoadLevel("main game"); 
     }
-
 }
