@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4b90910012851412b86edd7c8d25da54
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 1786
+  packageName: Photon Unity Networking Classic - FREE
+  packageVersion: 1.105
+  assetPath: Assets/Photon Unity Networking/UtilityScripts/PhotonPlayer/Editor/PlayerRoomIndexingInspector.cs
+  uploadId: 460225

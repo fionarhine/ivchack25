@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 69b289ee6111d4c57ad5251d5009350b
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 1786
+  packageName: Photon Unity Networking Classic - FREE
+  packageVersion: 1.105
+  assetPath: Assets/Photon Unity Networking/Plugins/PhotonNetwork/PingCloudRegions.cs
+  uploadId: 460225
